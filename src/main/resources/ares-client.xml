@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aresClient="http://www.ares-remoting.com/schema/ares-reference"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.ares-remoting.com/schema/ares-reference http://www.ares-remoting.com/schema/ares-reference.xsd">
+
+    <!--&lt;!&ndash;引入远程服务&ndash;&gt;-->
+    <!--<bean id="remoteHelloService" class="ares.remoting.framework.revoker.RevokerFactoryBean" lazy-init="false">-->
+        <!--&lt;!&ndash;远程服务接口&ndash;&gt;-->
+        <!--<property name="targetInterface" value="ares.remoting.test.HelloService"></property>-->
+        <!--&lt;!&ndash;配置软负载策略，可选配置，默认为Random策略，其余配置项参考 ClusterStrategyEnum&ndash;&gt;-->
+        <!--<property name="clusterStrategy" value="WeightRandom"></property>-->
+        <!--&lt;!&ndash;远程服务应用标识ares,可根据实际需要配置不同的值&ndash;&gt;-->
+        <!--<property name="remoteAppKey" value="ares"></property>-->
+        <!--&lt;!&ndash;服务分组组名，可选配置，默认为default&ndash;&gt;-->
+        <!--<property name="groupName" value="default"></property>-->
+        <!--&lt;!&ndash;客户端超时时间&ndash;&gt;-->
+        <!--<property name="timeout" value="600"></property>-->
+    <!--</bean>-->
+
+    <!--引入远程服务-->
+    <aresClient:reference id="remoteHelloService" timeout="3000" remoteAppKey="ares"
+    interface="ares.remoting.test.HelloService" clusterStrategy="WeightRandom" groupName="default"/>
+
+
+</beans>

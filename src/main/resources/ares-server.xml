@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aresServer="http://www.ares-remoting.com/schema/ares-service"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.ares-remoting.com/schema/ares-service http://www.ares-remoting.com/schema/ares-service.xsd">
+
+    <!--<bean class="ares.remoting.framework.provider.ProviderFactoryBean" lazy-init="false">-->
+        <!--&lt;!&ndash;服务接口&ndash;&gt;-->
+        <!--<property name="serviceItf" value="ares.remoting.test.HelloService"/>-->
+        <!--&lt;!&ndash;服务实现类&ndash;&gt;-->
+        <!--<property name="serviceObject">-->
+            <!--<bean class="ares.remoting.test.HelloServiceImpl"/>-->
+        <!--</property>-->
+        <!--&lt;!&ndash;应用标识，可根据实际需要配置不同的值&ndash;&gt;-->
+        <!--<property name="appKey" value="ares"/>-->
+        <!--&lt;!&ndash;服务权重，可选配置，默认值为1&ndash;&gt;-->
+        <!--<property name="weight" value="2"/>-->
+        <!--&lt;!&ndash;服务分组组名，可选配置，默认值default &ndash;&gt;-->
+        <!--<property name="groupName" value="default"/>-->
+        <!--&lt;!&ndash;服务工作者线程&ndash;&gt;-->
+        <!--<property name="workerThreads" value="11"/>-->
+        <!--&lt;!&ndash;服务端口&ndash;&gt;-->
+        <!--<property name="serverPort" value="8081"/>-->
+        <!--&lt;!&ndash;服务超时时间&ndash;&gt;-->
+        <!--<property name="timeout" value="600"/>-->
+    <!--</bean>-->
+
+    <bean id="helloService" class="ares.remoting.test.HelloServiceImpl"></bean>
+    <aresServer:service id="helloServiceRegister" interface="ares.remoting.test.HelloService" timeout="600" serverPort="8081" ref="helloService" appKey="ares"
+                        groupName="default" weight="2" workerThreads="100"/>
+
+
+</beans>
