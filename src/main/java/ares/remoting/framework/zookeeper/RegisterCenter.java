@@ -113,6 +113,9 @@ public class RegisterCenter implements IRegisterCenter4Invoker,IRegisterCenter4P
                             return StringUtils.split(input, "|")[0];
                         }
                     }));
+                    /**
+                     * 此处的刷新有待商榷（新增服务提供者不能实时同步到本地缓存）
+                     */
                     refreshServiceMetaDataMap(currentChilds);
                 }
             });

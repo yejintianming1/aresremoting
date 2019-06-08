@@ -30,5 +30,9 @@ http://www.ares-remoting.com/schema/ares-service http://www.ares-remoting.com/sc
     <aresServer:service id="helloServiceRegister" interface="ares.remoting.test.HelloService" timeout="600" serverPort="8081" ref="helloService" appKey="ares"
                         groupName="default" weight="2" workerThreads="100"/>
 
+    <bean id="goodByeService" class="ares.remoting.test.GoodByeServiceImpl"></bean>
+    <aresServer:service id="goodByeServiceRegister" interface="ares.remoting.test.GoodByeService" timeout="600" serverPort="8081" ref="goodByeService" appKey="ares"
+                        groupName="default" weight="2" workerThreads="100"/>
+
 
 </beans>

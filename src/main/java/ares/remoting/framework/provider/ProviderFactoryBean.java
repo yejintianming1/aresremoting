@@ -44,7 +44,7 @@ public class ProviderFactoryBean implements FactoryBean, InitializingBean {
 
     @Override
     public boolean isSingleton() {
-        return true;
+        return false;
     }
 
     @Override

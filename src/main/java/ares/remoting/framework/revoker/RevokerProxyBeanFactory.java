@@ -102,6 +102,14 @@ public class RevokerProxyBeanFactory implements InvocationHandler {
 
     private static volatile  RevokerProxyBeanFactory singleton;
 
+    /**
+     * 这个单例模式限制了获取的代理类类型
+     * @param targetInterface
+     * @param consumeTimeout
+     * @param clusterStrategy
+     * @return
+     * @throws Exception
+     */
     public static RevokerProxyBeanFactory singleton(Class<?> targetInterface, int consumeTimeout, String clusterStrategy) throws Exception {
         if (null == singleton) {
             synchronized (RevokerProxyBeanFactory.class) {

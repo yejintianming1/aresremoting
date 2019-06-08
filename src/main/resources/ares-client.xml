@@ -23,5 +23,9 @@
     <aresClient:reference id="remoteHelloService" timeout="3000" remoteAppKey="ares"
     interface="ares.remoting.test.HelloService" clusterStrategy="WeightRandom" groupName="default"/>
 
+    <!--引入远程服务-->
+    <aresClient:reference id="remoteGoodByeService" timeout="3000" remoteAppKey="ares"
+                          interface="ares.remoting.test.GoodByeService" clusterStrategy="WeightRandom" groupName="default"/>
+
 
 </beans>

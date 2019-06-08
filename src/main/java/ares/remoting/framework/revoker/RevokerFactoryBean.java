@@ -38,7 +38,7 @@ public class RevokerFactoryBean implements FactoryBean, InitializingBean {
 
     @Override
     public boolean isSingleton() {
-        return true;
+        return false;
     }
 
     @Override
@@ -56,7 +56,8 @@ public class RevokerFactoryBean implements FactoryBean, InitializingBean {
         NettyChannelPoolFactory.channelPoolFactoryInstance().initChannelPoolFactory(providerMap);
 
         //获取服务提供者代理对象
-        RevokerProxyBeanFactory proxyFactory = RevokerProxyBeanFactory.singleton(targetInterface, timeout, clusterStrategy);
+//        RevokerProxyBeanFactory proxyFactory = RevokerProxyBeanFactory.singleton(targetInterface, timeout, clusterStrategy);
+        RevokerProxyBeanFactory proxyFactory = new RevokerProxyBeanFactory(targetInterface, timeout, clusterStrategy);
         this.serviceObject = proxyFactory.getProxy();
 
         //将消费者信息注册到注册中心
